@@ -142,7 +142,7 @@ fun AppToolsBar(
     Box(
         modifier = modifierBg
             .fillMaxWidth()
-            .statusBarsPadding()
+            .padding(top = 30.dp)
             .height(ToolBarHeight)
 
     ) {
