@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">夏日炎炎</string>
+    <string name="fish">鱼塘</string>
+    <string name="qa">问答</string>
+    <string name="article">文章</string>
+    <string name="course">课程</string>
+    <string name="my">我的</string>
+</resources>
