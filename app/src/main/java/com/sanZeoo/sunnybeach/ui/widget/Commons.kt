@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -103,11 +102,12 @@ fun BottomNavBarView(navController: NavHostController) {
 
 @Composable
 fun AppToolsBgBar(
-    title: String,
+    title: String="",
     rightText: String? = null,
     onBack: (() -> Unit)? = null,
     onRightClick: (() -> Unit)? = null,
     imageVector: ImageVector? = null,
+    contentColor: Color = MaterialTheme.colorScheme.onBackground,
     painter: Painter? = null,
 ) {
 //    #00ffff
@@ -119,6 +119,7 @@ fun AppToolsBgBar(
         onRightClick,
         imageVector,
         painter,
+        contentColor,
         modifier = Modifier.background(linear)
     )
 }
@@ -134,6 +135,7 @@ fun AppToolsBar(
     onRightClick: (() -> Unit)? = null,
     imageVector: ImageVector? = null,
     painter: Painter? = null,
+    contentColor: Color = MaterialTheme.colorScheme.onBackground,
     modifier: Modifier? = null
 ) {
     val modifierBg: Modifier = modifier
@@ -142,7 +144,7 @@ fun AppToolsBar(
     Box(
         modifier = modifierBg
             .fillMaxWidth()
-            .padding(top = 30.dp)
+//            .padding(top = 30.dp)
             .height(ToolBarHeight)
 
     ) {
@@ -155,14 +157,14 @@ fun AppToolsBar(
                         .clickable(onClick = onBack)
                         .align(Alignment.CenterVertically)
                         .padding(12.dp),
-                    tint = MaterialTheme.colorScheme.primary
+                    tint = contentColor
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
             if (!rightText.isNullOrEmpty() && imageVector == null) {
                 TextContent(
                     text = rightText,
-                    color = MaterialTheme.colorScheme.onPrimary,//.mainColor,
+                    color = contentColor,//.mainColor,
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
                         .padding(horizontal = 20.dp)
@@ -174,6 +176,7 @@ fun AppToolsBar(
                 Icon(
                     imageVector = imageVector,
                     contentDescription = null,
+                    tint = contentColor,
 //                    tint = MaterialTheme.colorScheme.onPrimary,
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
@@ -186,7 +189,7 @@ fun AppToolsBar(
                 Icon(
                     painter = painter,
                     contentDescription = null,
-//                    tint = MaterialTheme.colorScheme.onPrimary,
+                    tint = contentColor,
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
                         .padding(end = 12.dp)
@@ -200,7 +203,7 @@ fun AppToolsBar(
             modifier = Modifier
                 .align(Alignment.Center)
                 .padding(horizontal = 40.dp),
-            color = MaterialTheme.colorScheme.onBackground,
+            color = contentColor,
             textAlign = TextAlign.Center,
             fontSize = if (title.length > 14) H5 else ToolBarTitleSize,
             fontWeight = FontWeight.W500,

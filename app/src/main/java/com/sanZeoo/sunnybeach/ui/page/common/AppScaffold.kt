@@ -2,6 +2,7 @@ package com.sanZeoo.sunnybeach.ui.page.common
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
@@ -9,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
@@ -19,9 +21,12 @@ import coil.compose.rememberAsyncImagePainter
 import com.sanZeoo.sunnybeach.R
 import com.sanZeoo.sunnybeach.ui.page.article.ArticlePage
 import com.sanZeoo.sunnybeach.ui.page.course.CoursePage
+import com.sanZeoo.sunnybeach.ui.page.fish.CommentPage
 import com.sanZeoo.sunnybeach.ui.page.fish.FishPage
+import com.sanZeoo.sunnybeach.ui.page.fish.FishPondDetailPage
 import com.sanZeoo.sunnybeach.ui.page.my.MyPage
 import com.sanZeoo.sunnybeach.ui.page.qa.QaPage
+import com.sanZeoo.sunnybeach.ui.widget.AppToolsBgBar
 import com.sanZeoo.sunnybeach.ui.widget.BottomNavBarView
 import com.sanZeoo.sunnybeach.utils.showToast
 
@@ -34,11 +39,21 @@ fun AppScaffold() {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     // 目的地
     val currentDestination = navBackStackEntry?.destination
-
     val rememberCoroutineScope = rememberCoroutineScope()
 
-
     Scaffold(
+        topBar = {
+            val route = currentDestination?.route
+            if (route!=null){
+                when{
+                    //适配传参
+                    route.startsWith(RouteName.FISH_POND_DETAIL) ||
+                            route.startsWith(RouteName.MY) ->AppToolsBgBar(contentColor = Color.White)
+
+                    route.startsWith(RouteName.ARTICLE) ->Box(modifier = Modifier.padding(1.dp))
+
+                }
+            } },
         bottomBar = {
             when(currentDestination?.route){
                 RouteName.FISH ->BottomNavBarView(navController)
@@ -61,6 +76,7 @@ fun AppScaffold() {
         //  导航器, 开始导航
         NavHost(navController = navController , modifier = Modifier.padding(innerPadding)
             , startDestination = RouteName.FISH  ){
+            //主页
             composable(route = RouteName.FISH) {
                 FishPage(navController,rememberCoroutineScope)
             }
@@ -76,7 +92,14 @@ fun AppScaffold() {
             composable(route = RouteName.MY) {
                 MyPage(navController)
             }
+            //fish页面
+            composable(route = RouteName.COMMENT){
+                CommentPage(navController)
+            }
 
+            composable(route = RouteName.FISH_POND_DETAIL+"/{fondId}"){
+                FishPondDetailPage(navController,it.arguments?.getString("fondId"))
+            }
         }
     }
 }

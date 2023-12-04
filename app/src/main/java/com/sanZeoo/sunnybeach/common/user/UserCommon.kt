@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
@@ -75,11 +74,12 @@ fun UserDetailView(
     leftSubtitle: String?,
     rightSubtitle: String,
     imageSize: Int = 40,
+    fontWeight: FontWeight = FontWeight.Bold,
     titleTextSize: Int = 14,
 ) {
     val mSdf = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.SIMPLIFIED_CHINESE)
 
-    UserView(avatar, title, imageSize, titleTextSize, fontWeight = FontWeight.Bold) {
+    UserView(avatar, title, imageSize, titleTextSize, fontWeight = fontWeight) {
         Text(
             text = "${leftSubtitle.ifNullOrEmpty { "摊友" }} · ${
                 rightSubtitle.getFriendlyTimeSpanByNow(mSdf)

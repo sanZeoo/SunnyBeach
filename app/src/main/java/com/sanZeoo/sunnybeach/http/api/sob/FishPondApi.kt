@@ -30,11 +30,11 @@ interface FishPondApi {
         @Path("page") page: Int
     ): HttpData<ListWrapper<FishItem>>
 
-//    /**
-//     * 获取动态详情
-//     */
-//    @GET("ct/moyu/{momentId}")
-//    suspend fun loadFishDetailById(@Path("momentId") momentId: String): HttpData<Fish.FishItem>
+    /**
+     * 获取动态详情 1731491796907909122
+     */
+    @GET("ct/moyu/{momentId}")
+    suspend fun loadFishDetailById(@Path("momentId") momentId: String): HttpData<FishItem>
 
     /**
      * 获取动态评论
@@ -43,7 +43,7 @@ interface FishPondApi {
     suspend fun getFishCommendListById(
         @Path("momentId") momentId: String,
         @Path("page") page: Int
-    ): HttpData<FishPondComment>
+    ): HttpData<ListWrapper<FishPondComment>>
 
     companion object : FishPondApi by ServiceCreator.create()
 }

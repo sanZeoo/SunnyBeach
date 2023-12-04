@@ -29,6 +29,9 @@ val GreyItemBg = Color(0xFFF0F0F0)
 val MenuFontColor = Color(0xFF969BA3)
 val MenuLikeFontColor = Color(0xff0084ff)
 
+val CommentColor = Color(0xffA4A4A4)
+val CommentBgColor = Color(0xfff4f4f4)
+
 //QaPage
 // answer
 val AnswerGreenColor = Color(0xFF48A868)

@@ -199,9 +199,9 @@ dependencies {
     //下拉刷新 已移植material design3  已被PullRefresh取代 box+pullRefresh
 //    implementation ("com.google.accompanist:accompanist-swiperefresh:$accompanistVersion")
 
-    //系统ui控制器
+    //系统ui控制器  解决 topbar + window 设置隐藏导航栏
 //    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.31.0-alpha")
-    // 沉浸式 适配
+    // 沉浸式 适配  解决 topbar + window 设置隐藏导航栏
 //    implementation ("com.geyifeng.immersionbar:immersionbar:3.2.2")
 
 }

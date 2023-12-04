@@ -37,6 +37,7 @@ fun <T : Any> RefreshListView(
     pullRefreshState: PullRefreshState,
     onRefresh: (() -> Unit) = {},
     listState: LazyListState = rememberLazyListState(),
+    modifier: Modifier = Modifier.fillMaxSize(),
     //composable 界面
     headView: @Composable () -> Unit = {},
     stickyHeader: @Composable () -> Unit = {},
@@ -49,7 +50,7 @@ fun <T : Any> RefreshListView(
         //动态列表
         LazyColumn(
             state = listState,
-            modifier = Modifier.fillMaxSize()
+            modifier = modifier
         ) {
             stickyHeader {
                 stickyHeader.invoke()

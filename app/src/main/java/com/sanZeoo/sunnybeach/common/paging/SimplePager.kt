@@ -55,6 +55,42 @@ fun <T : Any> ViewModel.simplePager(
     }
 }
 
+
+fun <T : Any> ViewModel.simpleNetWork(
+    config: AppPagingConfig = AppPagingConfig(),
+    callAction: suspend () -> HttpData<T>
+): Flow<PagingData<T>> {
+    return pager(config, initialKey = null) {
+        val response = try {
+            HttpResult.Success(callAction.invoke())
+        } catch (e: Exception) {
+            if (NetCheckUtil.checkNet(MyApp.CONTEXT).not()) {
+                showToast("没有网络,请重试")
+            } else {
+                showToast("请求失败，请重试")
+            }
+            HttpResult.Error(e)
+        }
+        when (response) {
+            is HttpResult.Success -> {
+                Timber.d("列表数据 获取数据")
+                val data = response.result.data ?: return@pager PagingSource.LoadResult.Error(ServiceException())
+                val prevKey =  null
+                val nextKey =  null
+                return@pager PagingSource.LoadResult.Page(
+                    data = listOf(data),
+                    prevKey = prevKey,
+                    nextKey = nextKey
+                )
+            }
+            is HttpResult.Error -> {
+                PagingSource.LoadResult.Error(response.exception)
+            }
+        }
+    }
+}
+
+
 fun <K : Any, V : Any> ViewModel.pager(
     config: AppPagingConfig = AppPagingConfig(),
     initialKey: K? = null,

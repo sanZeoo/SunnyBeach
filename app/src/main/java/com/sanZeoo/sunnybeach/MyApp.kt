@@ -19,7 +19,7 @@ class MyApp :Application() {
         super.onCreate()
         CONTEXT = this
 
-        Timber.plant(Timber.DebugTree());
+        Timber.plant(Timber.DebugTree())
 
     }
 }

@@ -2,8 +2,10 @@ package com.sanZeoo.sunnybeach.common
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,7 +26,7 @@ fun SettingCommon(
 ) {
     val colorFilter = if (imageColor!=null) ColorFilter.tint(imageColor) else null
     Row(
-        modifier = modifier.padding(top = 16.dp, start = 16.dp, bottom = 6.dp),
+        modifier = modifier.padding(top = 16.dp, start = 16.dp, bottom = 6.dp).fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(

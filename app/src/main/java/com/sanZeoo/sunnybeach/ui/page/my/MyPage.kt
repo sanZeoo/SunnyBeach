@@ -28,17 +28,18 @@ import androidx.navigation.NavHostController
 import com.sanZeoo.sunnybeach.R
 import com.sanZeoo.sunnybeach.common.SettingCommon
 import com.sanZeoo.sunnybeach.common.user.UserBaseView
-import com.sanZeoo.sunnybeach.common.user.UserDetailView
-import com.sanZeoo.sunnybeach.common.user.UserView
 import com.sanZeoo.sunnybeach.theme.H5
 import com.sanZeoo.sunnybeach.theme.H6
 import com.sanZeoo.sunnybeach.ui.widget.AppToolsBgBar
 
+
 @Composable
 fun MyPage(navController: NavHostController) {
+
     val scrollState = rememberScrollState()
     Column {
-        AppToolsBgBar(title = "我")
+        AppToolsBgBar(title = "我", contentColor = Color.White)
+
         Column(modifier = Modifier.verticalScroll(scrollState)) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -73,7 +74,9 @@ fun MyPage(navController: NavHostController) {
                     painter = painterResource(id = R.mipmap.ic_vip_banner_bg),
                     contentDescription = "开通会员",
                     contentScale = ContentScale.Fit,
-                    modifier = Modifier.height(96.dp).clip(RoundedCornerShape(20))
+                    modifier = Modifier
+                        .height(96.dp)
+                        .clip(RoundedCornerShape(20))
                 )
                 Text(
                     text = "开通会员享更多权益",

@@ -34,5 +34,4 @@ fun SplashPage(onAnimated: () -> Unit) {
         Text(text = "阳光沙滩", color =  Color(0x99000000), fontWeight = FontWeight.Bold, fontSize = 18.sp)
     }
 
-
 }

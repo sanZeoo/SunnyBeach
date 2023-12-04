@@ -3,9 +3,10 @@
 
     <style name="Theme.SunnyBeach" parent="android:Theme.Material.Light.NoActionBar" >
 <!--        <item name="android:windowTranslucentStatus">false</item>-->
-        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+<!--        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>-->
+<!--        <item name="android:windowFullscreen">true</item>-->
 <!--        <item name="android:fitsSystemWindows">true</item>-->
-        <item name="android:windowFullscreen">true</item>
+
 
 <!--        <item name="android:windowTranslucentStatus">false</item>-->
 <!--        &lt;!&ndash;windowFullscreen、windowLayoutInDisplayCutoutMode、windowTranslucentStatus三个属性一起用可以隐藏状态栏的情况下将挖孔屏设备窗口延伸之任务栏区域&ndash;&gt;&lt;!&ndash;全屏即无状态栏&ndash;&gt;-->

@@ -61,6 +61,7 @@ fun SunnyBeachTheme(
             val window = (view.context as Activity).window
 //            window.statusBarColor = colorScheme.background.toArgb()
             window.statusBarColor = Color.Transparent.toArgb()
+
 //            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
 

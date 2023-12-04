@@ -12,7 +12,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
-
 import com.sanZeoo.sunnybeach.theme.SunnyBeachTheme
 import com.sanZeoo.sunnybeach.ui.page.common.AppScaffold
 import com.sanZeoo.sunnybeach.ui.page.splash.SplashPage
@@ -22,11 +21,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         WindowCompat.setDecorFitsSystemWindows(window,false) // 状态栏隐藏（可占用）
 
         setContent {
-            var isSplashScreenShow by remember { mutableStateOf(true) }
+            var isSplashScreenShow by remember { mutableStateOf(false) }
 
             SunnyBeachTheme {
                 // A surface container using the 'background' color from the theme
