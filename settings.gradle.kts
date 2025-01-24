@@ -12,11 +12,11 @@ pluginManagement {
         }
         maven {
             isAllowInsecureProtocol = true
-            setUrl("http://maven.aliyun.com/nexus/content/repositories/google")
+            setUrl("https://maven.aliyun.com/nexus/content/repositories/google")
         }
         maven {
             isAllowInsecureProtocol = true
-            setUrl("http://maven.aliyun.com/nexus/content/repositories/gradle-plugin")
+            setUrl("https://maven.aliyun.com/nexus/content/repositories/gradle-plugin")
         }
 
         gradlePluginPortal()
@@ -39,11 +39,11 @@ dependencyResolutionManagement {
         }
         maven {
             isAllowInsecureProtocol = true
-            setUrl("http://maven.aliyun.com/nexus/content/repositories/google")
+            setUrl("https://maven.aliyun.com/nexus/content/repositories/google")
         }
         maven {
             isAllowInsecureProtocol = true
-            setUrl("http://maven.aliyun.com/nexus/content/repositories/gradle-plugin")
+            setUrl("https://maven.aliyun.com/nexus/content/repositories/gradle-plugin")
         }
 
         maven { setUrl("https://jitpack.io") }

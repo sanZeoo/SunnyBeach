@@ -1,7 +1,7 @@
-<vector android:height="32dp"
+<vector android:height="@dimen/dp_32"
     android:viewportHeight="1024"
     android:viewportWidth="1024"
-    android:width="32dp"
+    android:width="@dimen/dp_32"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <path
         android:fillColor="#ffc824"

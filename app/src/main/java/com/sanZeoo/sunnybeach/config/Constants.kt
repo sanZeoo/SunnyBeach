@@ -15,3 +15,5 @@ const val SUNNY_BEACH_SHARE_URL_PRE = "${SUNNY_BEACH_SITE_BASE_URL}s/"
 const val SUNNY_BEACH_VIEW_USER_URL_PRE = "${SUNNY_BEACH_SITE_BASE_URL}u/"
 
 const val SUNNY_BEACH_API_BASE_URL = "https://api.sunofbeaches.com/"
+
+const val EMOJI_TAG = "EMOJI"

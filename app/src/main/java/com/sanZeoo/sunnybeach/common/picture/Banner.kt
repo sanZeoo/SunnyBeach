@@ -2,7 +2,6 @@ package com.sanZeoo.sunnybeach.common.picture
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,14 +31,13 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Banner(
     pageCount:Int =10,  //多少数据
     timeMillis: Long =3000, //播放多少秒下一章图
     repeatCount : Int =5,  // 底部有多少个圈圈
-    state : PagerState = rememberPagerState(),
-    picData : (Int)->String ,
+    state : PagerState = rememberPagerState(5,0f, { 10 }),
+    picData : (Int)->String,
 ) {
     val scope = rememberCoroutineScope()
     //协程 监听state.settledPage 滚动截止瞬间
@@ -52,7 +50,7 @@ fun Banner(
     //轮播图
     Box {
         HorizontalPager(
-            pageCount = pageCount,
+//            pageCount = pageCount,
             state = state,
             modifier = Modifier.fillMaxWidth(),
         ) {

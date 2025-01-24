@@ -1,5 +1,8 @@
 package com.sanZeoo.sunnybeach.ui.page.common
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
@@ -74,7 +77,20 @@ fun AppScaffold() {
         }
     ) { innerPadding  ->
         //  导航器, 开始导航
-        NavHost(navController = navController , modifier = Modifier.padding(innerPadding)
+        NavHost(navController = navController ,
+            enterTransition = {
+                slideInHorizontally(animationSpec = tween(200)){ -it}
+            },
+            exitTransition = {
+                slideOutHorizontally(animationSpec = tween(200)){-it}
+            },
+            popEnterTransition = {
+                slideInHorizontally(animationSpec = tween(200)){-it}
+            },
+            popExitTransition = {
+                slideOutHorizontally(animationSpec = tween(200)){-it}
+            },
+            modifier = Modifier.padding(innerPadding)
             , startDestination = RouteName.FISH  ){
             //主页
             composable(route = RouteName.FISH) {

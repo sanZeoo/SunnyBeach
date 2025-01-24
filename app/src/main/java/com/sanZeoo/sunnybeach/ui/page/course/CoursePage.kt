@@ -54,7 +54,7 @@ fun CoursePage(
     val pullRefreshState = rememberPullRefreshState(refreshing = isRefreshing, onRefresh = {
         courseList?.refresh()
     })
-    val pagerState = rememberPagerState()
+    val pagerState = rememberPagerState(5,0f) { 10 }
     Column {
         AppToolsBar(title = "课程")
         RefreshGridView(lazyPagingItems = courseList,

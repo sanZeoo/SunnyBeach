@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.DrawerDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -17,6 +18,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.isSpecified
 import androidx.compose.ui.input.pointer.pointerInput
@@ -25,15 +27,15 @@ import androidx.compose.ui.semantics.onClick
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
+import androidx.compose.ui.window.PopupProperties
 
 @Composable
 fun BottomSheet(
     openBottomSheet: MutableState<Boolean>,
-    onConfirm: () -> Unit = {},
     content: @Composable () -> Unit = {},
 ) {
     if (openBottomSheet.value) {
-        Popup {
+        Popup(properties = PopupProperties(focusable = true)) {
             BoxWithConstraints(Modifier.fillMaxSize()) {
                 Scrim(
                     color = DrawerDefaults.scrimColor,
@@ -46,12 +48,11 @@ fun BottomSheet(
                     modifier = Modifier
                         .widthIn(max = 640.dp)
                         .fillMaxWidth()
+                        .clip(RoundedCornerShape(topStartPercent = 10, topEndPercent = 10))
                         .align(Alignment.BottomCenter),
                 ) {
                     Column(
-                        Modifier
-                            .fillMaxWidth()
-                        ,
+                        Modifier.fillMaxWidth(),
                         verticalArrangement = Arrangement.Center
                     ) {
 

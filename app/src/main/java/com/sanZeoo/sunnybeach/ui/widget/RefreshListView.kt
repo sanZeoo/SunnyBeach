@@ -44,6 +44,8 @@ fun <T : Any> RefreshListView(
     itemContent: LazyListScope.() -> Unit
 ) {
     val err = lazyPagingItems?.loadState?.refresh is LoadState.Error
+
+
     Box(modifier = Modifier.pullRefresh(pullRefreshState)) {
         // 可以自定义下拉刷新指示器 放在最后 覆盖在最上层
 //            PullRefreshIndicator(isRefreshing, pullRefreshState, Modifier.align(Alignment.TopCenter))
@@ -70,6 +72,7 @@ fun <T : Any> RefreshListView(
                 }
             }
         } //LazyColumn  滑动窗口
+
         PullRefreshIndicator(isRefreshing, pullRefreshState, Modifier.align(Alignment.TopCenter))
     }
 }

@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace = "com.sanZeoo.sunnybeach"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.sanZeoo.sunnybeach"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -34,15 +34,12 @@ android {
         }
 
     }
-    kotlin {
-        jvmToolchain(8)
-    }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
     buildFeatures {
         compose = true
@@ -117,7 +114,7 @@ android {
             isDebuggable = false
             isJniDebuggable = false
             // 压缩对齐开关
-            isZipAlignEnabled = true
+//            isZipAlignEnabled = true
             // 移除无用的资源
             isShrinkResources = true
             // 代码混淆开关
