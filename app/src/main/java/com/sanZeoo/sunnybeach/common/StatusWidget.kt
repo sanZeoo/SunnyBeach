@@ -1,5 +1,8 @@
 package com.sanZeoo.sunnybeach.common
 
+import android.graphics.Color
+import android.os.Build.VERSION_CODES.R
+import android.widget.Button
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -24,14 +27,14 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.sanZeoo.sunnybeach.R
 import com.sanZeoo.sunnybeach.config.NetWorkStates
+import org.w3c.dom.Text
 
 @Composable
 fun NetWorkStatusWidget(
     states: NetWorkStates,
 ){
-
     NetWorkStates.LOADING
-
+    
 }
 
 @Composable
